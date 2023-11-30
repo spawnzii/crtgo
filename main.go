@@ -2,7 +2,6 @@ package main
 
 
 import(
-	"fmt"
 	"flag"
 	"bufio"
 	"os"
@@ -19,15 +18,9 @@ func main(){
 		scanner := bufio.NewScanner(os.Stdin)
 		for scanner.Scan() {
 			domain := scanner.Text()
-			findings := crt.FetchCrt(domain)
-			for sub := range findings{
-				fmt.Println(findings[sub])
-			}
+			crt.FetchCrt(domain)
 		}
 	}else {
-		findings := crt.FetchCrt(*domain)
-		for sub := range findings{
-			fmt.Println(findings[sub])
-		}
+		crt.FetchCrt(*domain)
 	}
 }
