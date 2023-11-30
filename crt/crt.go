@@ -32,10 +32,10 @@ func FetchCrt(domain string) {
                     }
                 }
                 if !alreadyExists && strings.Contains(clearItem,"@")!=true && strings.Contains(clearItem,"*")!=true{
-					if len(clearItem)>=4{
-                    	findings = append(findings, clearItem)
-						fmt.Println(clearItem)
-					}
+			if len(clearItem)>=4{
+				findings = append(findings, clearItem)
+				fmt.Println(clearItem)
+			}
                 }
             }
         }
