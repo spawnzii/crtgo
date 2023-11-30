@@ -9,7 +9,7 @@ import(
 )
 
 
-func FetchCrt(domain string) []string{
+func FetchCrt(domain string) {
 	var findings []string
 
     url := fmt.Sprintf("https://crt.sh/?q=%s", domain)
@@ -32,11 +32,13 @@ func FetchCrt(domain string) []string{
                     }
                 }
                 if !alreadyExists && strings.Contains(clearItem,"@")!=true && strings.Contains(clearItem,"*")!=true{
-                    findings = append(findings, clearItem)
+					if len(clearItem)>=4{
+                    	findings = append(findings, clearItem)
+						fmt.Println(clearItem)
+					}
                 }
             }
         }
     }
-    return findings
 
 }
